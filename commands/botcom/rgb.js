@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'redgreenblue',
+    name: 'rgb',
     aliases: [],
     category: 'Botcom',
     utilisation: '{prefix}rgb',
