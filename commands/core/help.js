@@ -7,15 +7,17 @@ module.exports = {
     execute(client, message, args) {
         if (!args[0]) {
             const infos = message.client.commands.filter(x => x.category == 'Infos').map((x) => '`' + x.name + '`').join(', ');
+            const botcom = message.client.commands.filter(x => x.category == 'Botcom').map((x) => '`' + x.name + '`').join(', ');
             const music = message.client.commands.filter(x => x.category == 'Music').map((x) => '`' + x.name + '`').join(', ');
 
             message.channel.send({
                 embed: {
                     color: 'ORANGE',
-                    author: { name: 'Help pannel' },
-                    footer: { text: 'This bot uses a Github project made by Zerio (ZerioDev/Music-bot)' },
+                    author: { name: 'Mini hihi help pannel' },
+                    footer: { text: 'Music bot credit to Zerio' },
                     fields: [
-                        { name: 'Bot', value: infos },
+                        { name: 'Info', value: infos },
+                        { name: 'Bot', value: botcom },
                         { name: 'Music', value: music },
                         { name: 'Filters', value: client.filters.map((x) => '`' + x + '`').join(', ') },
                     ],
@@ -26,13 +28,13 @@ module.exports = {
         } else {
             const command = message.client.commands.get(args.join(" ").toLowerCase()) || message.client.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()));
 
-            if (!command) return message.channel.send(`${client.emotes.error} - I did not find this command !`);
+            if (!command) return message.channel.send(`${client.emotes.error} mini hihi can't find this command`);
 
             message.channel.send({
                 embed: {
                     color: 'ORANGE',
-                    author: { name: 'Help pannel' },
-                    footer: { text: 'This bot uses a Github project made by Zerio (ZerioDev/Music-bot)' },
+                    author: { name: 'Mini hihi help pannel' },
+                    footer: { text: 'Music bot credit to Zerio' },
                     fields: [
                         { name: 'Name', value: command.name, inline: true },
                         { name: 'Category', value: command.category, inline: true },
